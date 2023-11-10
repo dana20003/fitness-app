@@ -1,4 +1,5 @@
 altair
+openai
 numpy
 pandas
 pydeck
