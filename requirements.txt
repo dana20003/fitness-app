@@ -1,5 +1,5 @@
 altair
-openai
+openai=0.28.1
 numpy
 pandas
 pydeck
