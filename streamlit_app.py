@@ -1,9 +1,8 @@
 import streamlit as st
 import openai
-from decouple import config
 
 # Read the API key from the .env file
-api_key = config('API_KEY')
+openai.api_key =st.secrets['API_KEY']
 
 st.title("Fitness Recommendations App")
 
@@ -54,7 +53,7 @@ else:
     diet_goal = "muscle gain"
 
 # Initialize the chatbot
-api_key = config('API_KEY')
+openai.api_key =st.secrets['API_KEY']
 
 # Generate a list of disliked foods for each category
 disliked_foods_list = [f"{category} ({', '.join(disliked_foods[category])})" for category in food_categories]
