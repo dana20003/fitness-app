@@ -98,7 +98,6 @@ def remove_disliked_foods(recommendations, disliked_foods):
 st.title("Fitness Recommendation App")
 st.header("Diet and Exercise Recommendations")
 st.write("Calorie Requirements for", diet_goal.capitalize(), "Goal:", round(calorie_requirement, 2), "calories")
-st.divider()
 recommendations = get_response(user_message)
 recommendations_without_disliked_foods = remove_disliked_foods(recommendations, disliked_foods)
 st.write(recommendations_without_disliked_foods)
