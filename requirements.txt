@@ -1,5 +1,6 @@
 altair
 openai==0.28
+backoff
 numpy
 pandas
 pydeck
