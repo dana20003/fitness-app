@@ -1,6 +1,5 @@
 import streamlit as st
 import openai
-import backoff
 
 # Read the API key from the .env file
 openai.api_key =st.secrets['API_KEY']
@@ -77,9 +76,6 @@ def get_response(user_message):
     )
     return response["choices"][0]["message"]["content"]
 
-@backoff.on_exception(backoff.expo, openai.error.RateLimitError)
-def completions_with_backoff(**kwargs):
-    return openai.Completion.create(**kwargs)
 
 
 completions_with_backoff(model="text-davinci-002", prompt="Once upon a time,")
