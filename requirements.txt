@@ -6,3 +6,7 @@ pandas
 pydeck
 streamlit
 scikit-learn
+ pandas 
+sqlalchemy 
+tensorflow 
+requests
