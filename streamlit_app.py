@@ -62,13 +62,6 @@ disliked_foods_list = [f"{category} ({', '.join(disliked_foods[category])})" for
 # Define the user message with a clear prompt for diet and exercise recommendations
 user_message = f"My weight is {weight} kg, I am {height} m tall, and my goal is to {goal}. My estimated calorie requirement is {round(calorie_requirement, 2)} calories. I don't like the following foods and have allergies to others: {', '.join(disliked_foods_list)}. Generate a diet and exercise schedule considering my preferences."
 
-@backoff.on_exception(backoff.expo, openai.error.RateLimitError)
-def completions_with_backoff(**kwargs):
-    return openai.Completion.create(**kwargs)
-
-
-completions_with_backoff(model="text-davinci-002", prompt="Once upon a time,")
-
 
 
 # Use ChatGPT for generating recommendations
@@ -84,6 +77,12 @@ def get_response(user_message):
     )
     return response["choices"][0]["message"]["content"]
 
+@backoff.on_exception(backoff.expo, openai.error.RateLimitError)
+def completions_with_backoff(**kwargs):
+    return openai.Completion.create(**kwargs)
+
+
+completions_with_backoff(model="text-davinci-002", prompt="Once upon a time,")
 
 
 def remove_disliked_foods(recommendations, disliked_foods):
