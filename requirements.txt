@@ -6,4 +6,3 @@ scikit-learn
 streamlit==1.24.1
 pandas>2.0
 numpy<=1.25.1
-jsonschema==4.18.0
