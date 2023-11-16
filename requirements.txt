@@ -1,8 +1,8 @@
 altair
 openai==0.28
 backoff
-numpy
-pandas
 pydeck
-streamlit
 scikit-learn
+streamlit==1.24.1
+pandas>2.0
+numpy<=1.25.1
