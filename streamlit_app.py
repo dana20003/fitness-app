@@ -115,31 +115,3 @@ st.write(recommendations_without_disliked_foods)
 
 
 
-import pandas as pd
-import sqlalchemy as db
-import requests
-import tensorflow as tf
-
-price = st.number_input("House Price", min_value=100000, max_value=10000000, step=100000)
-def load_data():
-    return pd.read_csv('large_dataset.csv')
-data = load_data()
-used_columns = ['Column1', 'Column2', 'Column3']
-data = data[used_columns]
-def download_model():
-    url = "<https://example.com/large-model.h5>"
-    response = requests.get(url)
-    with open('large-model.h5', 'wb') as f:
-        f.write(response.content)
-download_model()
-model = tf.keras.models.load_model('large-model.h5')
-def load_efficient_data():
-    return pd.read_parquet('efficient_data.parquet')
-efficient_data = load_efficient_data()
-database_uri = 'sqlite:///example.db'
-engine = db.create_engine(database_uri)
-query = "SELECT * FROM large_table WHERE condition = true"
-db_data = pd.read_sql_query(query, con=engine)
-
-
-
