@@ -54,7 +54,7 @@ def main():
     disliked_foods_list = [f"{category} ({', '.join(disliked_foods[category])})" for category in food_categories]
 
 
-    if st.button("Calculate Recommendations and Save"):
+    if st.button("submit"):
        
 
        prompt = f"My weight is {weight} kg, I am {height} m tall, and my goal is to {goal}.I don't like the following foods and have allergies to others: {', '.join(disliked_foods_list)}. Generate a diet and exercise schedule considering my preferences."
